@@ -1,0 +1,71 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="bookshop1._1.Site1" %>
+<%@ Register  Src="~/loginView.ascx" TagName="UserContorl" TagPrefix="USContent" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>
+
+    </title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    
+    <style type="text/css">
+        .loginDisplay
+        {
+            height: 36px;
+        }
+    </style>
+</head>
+<body>
+    <form id="Form1" runat="server">
+    <div class="page">
+        <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    <div class="header">
+            <div class="title" align="center">
+                <h1 style="color: #003366">
+                    一个假的在线书店
+                </h1>
+            </div>
+            <div class="loginDisplay">
+           <USContent:UserContorl runat="server" ID="loginDisplay" />
+            </div>
+            <div class="clear hideSkiplink" style="margin: 20px 30px 20px 30px" 
+                align="center">
+             <!-- 添加最新上架 -->
+                <asp:Menu ID="NavigationMenu" runat="server" 
+                    EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal" 
+                    Width="673px" BackColor="#003366" BorderColor="#FF6600" ForeColor="White" 
+                    Height="29px" onmenuitemclick="NavigationMenu_MenuItemClick" 
+                    RenderingMode="Table">
+                   <Items>
+                  
+                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="主页"/>                        
+                        <asp:MenuItem NavigateUrl="~/search.aspx" Text="搜索"/>
+                         <asp:MenuItem NavigateUrl="~/About.aspx" Text="关于"/>
+                   
+                    </Items>
+                </asp:Menu>
+                       <div> 
+                           <asp:Label ID="Label1" runat="server" Text="通知栏"></asp:Label>
+                           <br />
+                           <asp:Label ID="Label2" runat="server"></asp:Label>
+                </div>
+            </div>
+        </div>
+
+
+    </asp:ContentPlaceHolder>
+        <div class="main" style="margin: 0px">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+  
+    </form>
+      <div class="footer" align="center">
+       <asp:Label ID="footLable" runat="server" Text="一个用ASP.NET制作的网上书店"></asp:Label>
+    </div>
+</body>
+</html>
